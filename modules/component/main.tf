@@ -33,7 +33,7 @@ resource "aws_instance" "main" {
   }
 }
 
-resource "aws_route53_record" "main" {
+resource "aws_route53_record" "dns" {
   zone_id = data.aws_route53_zone.main.zone_id
   name    = "${var.component}-${var.env}.${var.dns_domain}"
   type    = "A"
@@ -42,8 +42,6 @@ resource "aws_route53_record" "main" {
 }
 
 resource "null_resource" "ansible" {
-
-  depends_on = [aws_route53_record.main]
 
   provisioner "remote-exec" {
     connection {
