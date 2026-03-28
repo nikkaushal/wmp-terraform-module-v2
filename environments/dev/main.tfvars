@@ -2,7 +2,7 @@ dns_domain = "tek-nik.com."
 env        = "dev"
 
 databases = {
-  postgresql = {
+  postgres = {
     instance_type = "t3.small"
     ports = {
       ssh        = 22
